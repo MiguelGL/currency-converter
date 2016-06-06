@@ -56,8 +56,32 @@
         <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
         <maven-war-plugin.version>2.6</maven-war-plugin.version>
         <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
+        <versions-maven-plugin.version>2.2</versions-maven-plugin.version>
+        <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
 
     </properties>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Miguel García López</name>
+            <timezone>CET</timezone>
+            <organization>Personal</organization>
+            <url>https://github.com/MiguelGL</url>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git@github.com:MiguelGL/currency-converter.git</connection>
+        <developerConnection>scm:git:git@github.com:MiguelGL/currency-converter.git</developerConnection>
+        <url>https://github.com/MiguelGL/currency-converter</url>
+    </scm>
 
     <dependencyManagement>
 
@@ -202,6 +226,23 @@
                 </configuration>
             </plugin>
 
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <configuration>
+                    <generateBackupPoms>false</generateBackupPoms>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <arguments>-Dmaven.deploy.skip=true</arguments>
+                    <tagNameFormat>v@{project.version}</tagNameFormat>
+                </configuration>
+            </plugin>
+
         </plugins>
 
         <pluginManagement>
@@ -250,6 +291,17 @@
                     <groupId>org.wildfly.plugins</groupId>
                     <artifactId>wildfly-maven-plugin</artifactId>
                     <version>${wildfly-maven-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>versions-maven-plugin</artifactId>
+                    <version>${versions-maven-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>${maven-release-plugin.version}</version>
                 </plugin>
 
             </plugins>
