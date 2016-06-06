@@ -238,7 +238,7 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <configuration>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
-                    <arguments>-Dmaven.deploy.skip=true</arguments>
+                    <arguments>-DskipTests=true -Dmaven.deploy.skip=true</arguments>
                     <tagNameFormat>v@{project.version}</tagNameFormat>
                 </configuration>
             </plugin>
