@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" 
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+
+    <persistence-unit name="com.mgl.currencyconverter_PU" transaction-type="JTA">
+
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <jta-data-source>java:jboss/datasources/CurrencyConverterXADS</jta-data-source>
+
+        <properties>
+            <!-- <property name="javax.persistence.schema-generation.database.action" value="create"/> -->
+            <property name="javax.persistence.schema-generation.database.action" value="none"/>
+
+            <!--<property name="hibernate.logging.level" value="WARN"/>-->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL9Dialect"/>
+            <!-- https://docs.jboss.org/hibernate/orm/5.0/javadocs/org/hibernate/cfg/AvailableSettings.html#IMPLICIT_NAMING_STRATEGY -->
+            <!-- <property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy"/> -->
+            <!-- <property name="hibernate.implicit_naming_strategy" value="legacy-jpa"/> -->
+            <property name="hibernate.connection.useUnicode" value="true"/>
+            <property name="hibernate.connection.characterEncoding" value="UTF-8"/>
+            <property name="hibernate.connection.charSet" value="UTF-8"/>
+            <property name="hibernate.show_sql" value="false"/>
+            <!--<property name="hibernate.format_sql" value="true"/>-->
+        </properties>
+
+    </persistence-unit>
+
+</persistence>
